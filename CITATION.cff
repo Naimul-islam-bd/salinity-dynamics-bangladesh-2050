@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it using the metadata below."
+title: "Spatiotemporal Salinity Dynamics in Southwest Bangladesh (2000–2050)"
+abstract: >
+  Open-source pipeline for the ICSD 2026 manuscript on 26-year Landsat NDSI
+  reconstruction, cyclone-event attribution, late-monsoon anomaly detection,
+  and Random Forest projection of soil salinity through 2050 across
+  Khulna, Satkhira, and Bagerhat districts of Bangladesh.
+authors:
+  - family-names: "Islam"
+    given-names: "Naimul"
+    email: "naimul.islam.bangladesh@gmail.com"
+    affiliation: "Tetra Private Limited, Dhaka, Bangladesh"
+  - family-names: "Ahmed"
+    given-names: "Niloy"
+version: "0.1.0"
+date-released: "2026-05-30"
+license: MIT
+repository-code: "https://github.com/Naimul-islam-bd/salinity-dynamics-bangladesh-2050"
+keywords:
+  - salinity
+  - bangladesh
+  - landsat
+  - google-earth-engine
+  - random-forest
+  - climate-adaptation
+  - delta
+  - remote-sensing
+  - hydrological-machine-learning
+preferred-citation:
+  type: conference-paper
+  title: >
+    Spatiotemporal Salinity Dynamics in Southwest Bangladesh (2000–2026):
+    Cyclone Impacts, Seasonal Anomalies, and Random Forest Projections
+    for Delta Governance
+  authors:
+    - family-names: "Islam"
+      given-names: "Naimul"
+    - family-names: "Ahmed"
+      given-names: "Niloy"
+  conference:
+    name: "8th International Conference on Sustainable Development (ICSD 2026)"
+    city: "Dhaka"
+    country: "BD"
+    date-start: "2026-03-30"
+    date-end: "2026-03-31"
+  year: 2026
+  status: "submitted"
