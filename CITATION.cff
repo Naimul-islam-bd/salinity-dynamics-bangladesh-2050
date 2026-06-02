@@ -11,8 +11,8 @@ authors:
     given-names: "Naimul"
     email: "naimul.islam.bangladesh@gmail.com"
     affiliation: "Tetra Private Limited, Dhaka, Bangladesh"
-  - family-names: "Ahmed"
-    given-names: "Niloy"
+  - family-names: ""
+    given-names: ""
 version: "0.1.0"
 date-released: "2026-05-30"
 license: MIT
@@ -36,8 +36,8 @@ preferred-citation:
   authors:
     - family-names: "Islam"
       given-names: "Naimul"
-    - family-names: "Ahmed"
-      given-names: "Niloy"
+    - family-names: ""
+      given-names: ""
   conference:
     name: "8th International Conference on Sustainable Development (ICSD 2026)"
     city: "Dhaka"
