@@ -188,7 +188,7 @@ If you use this code or methodology, please cite:
 
 ```bibtex
 @unpublished{islam2026salinity,
-  author    = {Islam, Naimul and Ahmed, Niloy},
+  author    = {Islam, Naimul},
   title     = {Spatiotemporal Salinity Dynamics in Southwest Bangladesh (2000--2026):
                Cyclone Impacts, Seasonal Anomalies, and Random Forest Projections
                for Delta Governance},
