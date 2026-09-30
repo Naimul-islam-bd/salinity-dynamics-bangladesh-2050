@@ -2,7 +2,7 @@
 Spatiotemporal Salinity Dynamics in Southwest Bangladesh (2000–2050)
 =====================================================================
 
-Reproducible analysis pipeline for the ICSD 2026 manuscript.
+Reproducible analysis pipeline for the southwest Bangladesh salinity study.
 
 Author : Naimul Islam <naimul.islam.bangladesh@gmail.com>
 License: MIT

@@ -1,6 +1,6 @@
 # Extended Methodology
 
-This document fills in detail that the conference paper compresses for length, and is the reference companion to the code in `src/`.
+This document fills in detail that the manuscript compresses for length, and is the reference companion to the code in `src/`.
 
 ## 1. Why NDSI for soil salinity?
 

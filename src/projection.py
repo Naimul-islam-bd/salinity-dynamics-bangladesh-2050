@@ -6,8 +6,10 @@ synthetic future feature matrix — same spatial grid, monthly cadence,
 years 2026 → 2050 — and the resulting per-pixel projections are
 aggregated to district / domain level.
 
-The published headline number is a **+20.8 % domain-mean increase in
-NDSI by 2050** relative to the 2000–2026 climatology.
+The reported figure is a **+20.8 % domain-mean NDSI in the 2026-2050 grid**
+relative to the 2000–2026 mean. A Random Forest does not extrapolate beyond
+the training range of `year`, so this is the recent regime carried forward,
+not a modelled trend.
 """
 from __future__ import annotations
 

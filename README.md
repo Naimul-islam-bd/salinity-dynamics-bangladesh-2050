@@ -4,19 +4,18 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Manuscript: Under Review](https://img.shields.io/badge/manuscript-under%20review-orange)]()
-[![Conference: ICSD 2026](https://img.shields.io/badge/conference-ICSD%202026-blueviolet)]()
+[![Status: Manuscript in Preparation](https://img.shields.io/badge/manuscript-in%20preparation-orange)]()
 [![Data: Google Earth Engine](https://img.shields.io/badge/data-Google%20Earth%20Engine-4285F4)](https://earthengine.google.com)
 
 ---
 
 ## Overview
 
-This repository implements the analysis pipeline behind the conference manuscript:
+This repository implements the analysis pipeline behind the manuscript:
 
-> Islam, N., & Ahmed, N. (2026). *Spatiotemporal Salinity Dynamics in Southwest Bangladesh (2000–2026): Cyclone Impacts, Seasonal Anomalies, and Random Forest Projections for Delta Governance*. **Under review — 8th International Conference on Sustainable Development (ICSD 2026), Dhaka.**
+> Islam, N. (2026). *Spatiotemporal Salinity Dynamics in Southwest Bangladesh (2000–2026): Cyclone Impacts, Seasonal Anomalies, and Random Forest Projections for Delta Governance*. Manuscript in preparation.
 
-The study reconstructs a **26-year, high-cadence record of surface soil salinity** across the salinity-vulnerable districts of southwest Bangladesh — **Khulna**, **Satkhira**, and **Bagerhat** — and uses it to (a) attribute observed change to cyclone landfalls and seasonal forcing, (b) train a Random Forest projector calibrated against field electrical-conductivity measurements, and (c) project salinity through 2050 under a continuation of the observed climatic regime.
+The study reconstructs a **26-year, high-cadence record of surface soil salinity** across the salinity-vulnerable districts of southwest Bangladesh — **Khulna**, **Satkhira**, and **Bagerhat** — and uses it to (a) attribute observed change to cyclone landfalls and seasonal forcing, (b) train a Random Forest model of the NDSI record, with the NDSI checked against field electrical-conductivity measurements, and (c) carry the recent regime forward to 2050 as a simple scenario (see Limitations).
 
 ## Key Findings
 
@@ -24,11 +23,11 @@ The study reconstructs a **26-year, high-cadence record of surface soil salinity
 |---|---|
 | Cloud-free Landsat observations assembled (2000 – 2026) | **667** scenes (L5 + L8/9 via GEE) |
 | Field-validation pairs (NDSI vs EC, March 2024) | **n = 162**, p < 0.001 |
-| Random Forest projection skill | **R² = 0.496**, **RMSE = 0.00539** (NDSI units) |
-| Projected salinity increase by 2050 (study domain mean) | **+20.8 %** |
-| Novel finding: late-monsoon salinity peak in moribund delta | **August anomaly** challenges the dry-season-only paradigm |
+| Random Forest skill (random k-fold and hold-out splits) | **R² = 0.496**, **RMSE = 0.00539** (NDSI units) |
+| 2050 scenario, recent regime carried forward (domain mean NDSI vs 2000–2026 mean) | **+20.8 %** |
+| Seasonal signal: late-monsoon salinity peak in the moribund delta | **August anomaly**, departing from the usual dry-season-only picture |
 
-These results align with — and refine — the planning horizon set out in the **Bangladesh Delta Plan 2100**, by giving sub-district-resolved salinity expectations rather than national averages.
+The results are relevant to the planning horizon of the **Bangladesh Delta Plan 2100**, which works mostly with coarser, national-scale salinity information.
 
 ## Methodology — at a glance
 
@@ -53,10 +52,10 @@ These results align with — and refine — the planning horizon set out in the 
 │  STEP 5 · RANDOM-FOREST PROJECTION                                   │
 │    Features: month, year-trend, lat, lng, cyclone-recency, season    │
 │    Target  : NDSI (continuous) — RandomForestRegressor               │
-│    Validate: k-fold + held-out validation → R² ≈ 0.496               │
+│    Validate: random k-fold + held-out split → R² ≈ 0.496             │
 ├──────────────────────────────────────────────────────────────────────┤
 │  STEP 6 · 2050 SCENARIO PROJECTION                                   │
-│    Roll features forward (2026 → 2050), predict per-pixel NDSI       │
+│    Roll features forward (2026 → 2050), recent regime held constant  │
 │    Aggregate to district / upazila → +20.8 % domain-mean increase    │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -193,12 +192,17 @@ If you use this code or methodology, please cite:
                Cyclone Impacts, Seasonal Anomalies, and Random Forest Projections
                for Delta Governance},
   year      = {2026},
-  note      = {Submitted to the 8th International Conference on Sustainable
-               Development (ICSD 2026), Dhaka, 30--31 March 2026 — under review}
+  note      = {Manuscript in preparation}
 }
 ```
 
 A machine-readable `CITATION.cff` is provided.
+
+## Limitations
+
+- **The 2050 figure is a scenario, not a trend model.** A Random Forest cannot extrapolate beyond the range of its training features, so predictions for years after 2026 hold the late-record regime constant. The +20.8 % therefore describes how the recent level compares with the 2000–2026 mean, carried forward. A projection that responds to sea-level rise, river flow and climate scenarios is the aim of the follow-on project [sw-bangladesh-salinity-2100](https://github.com/Naimul-islam-bd/sw-bangladesh-salinity-2100).
+- **Validation uses random splits.** Neighbouring pixels and adjacent months can fall on both sides of a random split, so the reported R² is likely optimistic. Spatially and temporally blocked validation is the next step.
+- **NDSI is a proxy.** It tracks surface salinity signals in bare and sparsely vegetated soil; the field EC comparison (n = 162, one campaign in March 2024) supports it but does not calibrate it for every season.
 
 ## Author
 
